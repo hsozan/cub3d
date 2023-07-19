@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdemirci <kdemirci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsozan <hsozan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 20:34:39 by dtamulis          #+#    #+#             */
-/*   Updated: 2023/07/12 14:38:41 by kdemirci         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:44:29 by hsozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int	main_loop(t_data *data)
 	mini_map(data);
 	draw_scene(data);
 	key_press(data);
-	mouse_move(data);
+	//mouse_move(data);
 	return (0);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sreinhol <sreinhol@student.42.fr>          +#+  +:+       +#+         #
+#    By: hsozan <hsozan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/05 20:07:57 by dtamulis          #+#    #+#              #
-#    Updated: 2022/06/21 18:13:54 by sreinhol         ###   ########.fr        #
+#    Updated: 2023/07/19 15:42:43 by hsozan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ $(NAME): $(OBJ)
 	@echo $(CURSIVE)$(GRAY) "     - Compiling $(NAME)..." $(NONE)
 	@cp ./mlx/libmlx.dylib libmlx.dylib
 	@gcc $(FLAGS) $(OBJ) $(LIBFT) $(INCLUDE) -o $(NAME)
+	@mkdir -p obj && mv $(OBJ) obj
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
 $(OBJ): $(SRC)
@@ -43,7 +44,7 @@ $(OBJ): $(SRC)
 
 clean:
 	@echo $(CURSIVE)$(GRAY) "     - Removing object files..." $(NONE)
-	@rm -rf $(OBJ) 
+	@rm -rf obj
 	@make -C $(LIBFTDIR) clean
 
 fclean: clean

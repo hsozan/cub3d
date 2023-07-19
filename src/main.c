@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdemirci <kdemirci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hsozan <hsozan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 08:29:22 by sreinhol          #+#    #+#             */
-/*   Updated: 2023/06/21 23:23:05 by kdemirci         ###   ########.fr       */
+/*   Updated: 2023/07/19 15:46:16 by hsozan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int argc, char **argv)
 	data.img[0].img = mlx_new_image(data.mlx_ptr, S_WIDTH, S_HEIGHT); 
 	data.img[0].addr = (int *)mlx_get_data_addr(data.img[0].img, // değişkenleri mlx struckına kaydediyor ki mlx ulaşmak istediğinde hepsine erişebilsin
 			&data.img[0].bpp, &data.img[0].sl, &data.img[0].endian); // mlx_get_data_addr fonksiyonu, MiniLibX kütüphanesindeki bir fonksiyondur. Bu fonksiyon, oluşturulan bir görüntünün veri adresini, bit derinliğini (bit per piksel), satır boyutunu ve bayt sıralamasını almak için kullanılır.
-	mlx_mouse_hide();
+	//mlx_mouse_hide();
 	mlx_hook(data.win_ptr, X_KEY_PRESS, (1L << 0), &key_dir_on, &data);
 	mlx_loop_hook(data.mlx_ptr, &main_loop, &data);
 	mlx_hook(data.win_ptr, 03, 0, &key_dir_off, &data);
