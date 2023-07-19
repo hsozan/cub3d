@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdemirci <kdemirci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:13:54 by sreinhol          #+#    #+#             */
-/*   Updated: 2023/06/21 23:03:39 by kdemirci         ###   ########.fr       */
+/*   Updated: 2023/07/19 17:34:39 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,20 @@ static void	check_map_helper(t_check *check, t_data *data, int i, int j)
 		check->player++;
 		if ((j == 0) || (i == 0) || (i == check->max_i) || (j == check->max_j))
 			error("Invalid player position.");
-		if (i != 0 && i != check->max_i && j != 0 && j != check->max_j)
+		/*if (i != 0 && i != check->max_i && j != 0 && j != check->max_j)
 		{
 			if ((map[j][i - 1] == ' ') || (map[j][i + 1] == ' ')
 			|| (map[j - 1][i] == ' ') || (map[j + 1][i] == ' '))
 				error("Invalid player position.");
 		}
+		*/
 		data->map.player = map[j][i];
 		map[j][i] = '0';
 		data->posy = i + 0.5;
 		data->posx = j + 0.5;
 	}
 }
-
+/*
 static void	check_map_helper_2(t_check *check, t_data *data, int i, int j)
 {
 	char	**map;
@@ -91,6 +92,7 @@ static void	check_map_helper_3(t_data *data, int i, int j)
 		}
 	}
 }
+*/
 
 void	check_map(t_data *data, t_check *check)
 {
@@ -108,9 +110,11 @@ void	check_map(t_data *data, t_check *check)
 		i = 0;
 		while (map[j][i])
 		{
+			if(map[j][i] == ' ')
+				map[j][i] = '1';
 			check_map_helper(check, data, i, j);
-			check_map_helper_2(check, data, i, j);
-			check_map_helper_3(data, i, j);
+			//check_map_helper_2(check, data, i, j);
+			//check_map_helper_3(data, i, j);
 			i++;
 		}
 		j++;

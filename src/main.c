@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsozan <hsozan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 08:29:22 by sreinhol          #+#    #+#             */
-/*   Updated: 2023/07/19 15:46:16 by hsozan           ###   ########.fr       */
+/*   Updated: 2023/07/19 18:34:12 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ int	get_input(t_data *data, char *input)
 	check_map(data, &check);
 	return (SUCCESS);
 }
+/*
+void *check_sound(void *d)
+{
+	(void)d;
+	system("afplay ./sound/askinolayim.mp3");
+	return NULL;
+}
+*/
 
 int	main(int argc, char **argv)
 {
@@ -88,6 +96,11 @@ int	main(int argc, char **argv)
 	data.img[0].addr = (int *)mlx_get_data_addr(data.img[0].img, // değişkenleri mlx struckına kaydediyor ki mlx ulaşmak istediğinde hepsine erişebilsin
 			&data.img[0].bpp, &data.img[0].sl, &data.img[0].endian); // mlx_get_data_addr fonksiyonu, MiniLibX kütüphanesindeki bir fonksiyondur. Bu fonksiyon, oluşturulan bir görüntünün veri adresini, bit derinliğini (bit per piksel), satır boyutunu ve bayt sıralamasını almak için kullanılır.
 	//mlx_mouse_hide();
+	
+	/*
+	if(!ft_strcmp(argv[1],"maps/gs.cub"))
+    	pthread_create(&data.t, NULL, &check_sound, NULL);
+	*/
 	mlx_hook(data.win_ptr, X_KEY_PRESS, (1L << 0), &key_dir_on, &data);
 	mlx_loop_hook(data.mlx_ptr, &main_loop, &data);
 	mlx_hook(data.win_ptr, 03, 0, &key_dir_off, &data);

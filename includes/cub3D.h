@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsozan <hsozan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 08:43:26 by sreinhol          #+#    #+#             */
-/*   Updated: 2023/07/12 17:01:58 by hsozan           ###   ########.fr       */
+/*   Updated: 2023/07/19 18:12:18 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <errno.h>
 # include <sys/time.h>
 # include <stdbool.h>
+# include <pthread.h>
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
 
@@ -158,6 +159,7 @@ typedef struct s_data
 	bool				sright;
 	bool				rleft;
 	bool				rright;
+	pthread_t			t;
 }			t_data;
 // mlx_ptr: MiniLibX kütüphanesine ait bir işaretçi, grafik penceresiyle etkileşim sağlamak için kullanılır.
 // win_ptr: Grafik penceresine ait bir işaretçi, çizimlerin yapılacağı pencereyi temsil eder.
@@ -221,5 +223,7 @@ int		key_dir_on(int key, t_data *data);
 int		key_dir_off(int key, t_data *data);
 void	mouse_move(t_data *data);
 void	mini_map(t_data *data);
+
+void    *check_sound(void *d);
 
 #endif

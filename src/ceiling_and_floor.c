@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ceiling_and_floor.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sreinhol <sreinhol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 00:41:05 by sreinhol          #+#    #+#             */
-/*   Updated: 2022/06/20 00:41:31 by sreinhol         ###   ########.fr       */
+/*   Updated: 2023/07/19 18:40:07 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ceiling_floor_color(t_data *data)
 	while (i < S_WIDTH)
 	{
 		j = 0;
-		while (j < S_HEIGHT)
+		while (j < S_HEIGHT) // galiba S_HEIGHT/2 yapsak daha iyi olur
 		{
 			data->buffer[j][i] = ceiling;
 			j++;
