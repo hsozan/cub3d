@@ -6,7 +6,7 @@
 /*   By: stunca <stunca@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 08:43:26 by sreinhol          #+#    #+#             */
-/*   Updated: 2023/07/19 18:12:18 by stunca           ###   ########.fr       */
+/*   Updated: 2023/07/22 17:30:22 by stunca           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ typedef struct s_map
 	int		*len;
 	int		line_length;
 	char	player;
+	int 	player_x;
+	int 	player_y;
+	char	player_dir;
 }			t_map;
 
 typedef struct s_check
@@ -159,7 +162,7 @@ typedef struct s_data
 	bool				sright;
 	bool				rleft;
 	bool				rright;
-	pthread_t			t;
+	//pthread_t			t;
 }			t_data;
 // mlx_ptr: MiniLibX kütüphanesine ait bir işaretçi, grafik penceresiyle etkileşim sağlamak için kullanılır.
 // win_ptr: Grafik penceresine ait bir işaretçi, çizimlerin yapılacağı pencereyi temsil eder.
